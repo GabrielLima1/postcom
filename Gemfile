@@ -26,6 +26,10 @@ gem 'devise'
 gem 'cancancan','~> 1.15.0'
 gem 'carrierwave'
 gem 'rails_admin_rollincode', '~> 1.0'
+gem 'twitter-bootstrap-rails'
+gem 'pry'
+gem 'simple_form'
+#gem 'will_paginate', '~> 3.1.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

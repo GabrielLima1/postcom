@@ -3,7 +3,8 @@ RailsAdmin.config do |config|
 
 
 config.navigation_static_links = {
-  'Comprar Créditos' => 'https://www.facebook.com/'
+  'Comprar Créditos' => 'https://www.facebook.com/',
+  'Dúvidas' => 'https://www.facebook.com/'
 }
 
 config.navigation_static_label = "Links Úteis"
@@ -33,6 +34,17 @@ config.navigation_static_label = "Links Úteis"
   # config.show_gravatar = true
 
   config.model User do
+    exclude_fields_if do
+      type == :datetime
+    end
+  end
+  config.model Proposal do
+    exclude_fields_if do
+      type == :datetime
+    end
+    # create do
+    #   field :img1
+    # end
   end
   # INICIO COMPANY #
   config.model Company do

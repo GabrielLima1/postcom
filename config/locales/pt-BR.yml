@@ -68,7 +68,7 @@ pt-BR:
       clear_all: "Limpar tudo"
       up: "Cima"
       down: "Baixo"
-      navigation: "Navegação"
+      navigation: "Menu"
       log_out: "Terminar Sessão"
       ago: "atrás"
     flash:
