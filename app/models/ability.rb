@@ -5,8 +5,9 @@ class Ability
 
   def initialize(user)
     if user
-      can [:read, :edit], User.where(id: user.id)
+      # can [:read, :edit], User.where(id: user.id)
       if user.kind == 'client'
+        can [:read, :edit], User.where(id: user.id)
         can :access, :rails_admin
         can :dashboard
         can [:create, :read, :edit], Company, user_id: user.id
