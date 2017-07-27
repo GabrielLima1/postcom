@@ -21,7 +21,6 @@ gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
-gem 'rails_admin_grid'
 gem 'rails_admin'
 gem 'devise'
 gem 'cancancan','~> 1.15.0'
@@ -30,6 +29,7 @@ gem 'rails_admin_rollincode', '~> 1.0'
 gem 'twitter-bootstrap-rails'
 gem 'pry'
 gem 'simple_form'
+gem 'mini_magick', '~> 4.3'
 
 #gem 'will_paginate', '~> 3.1.0'
 

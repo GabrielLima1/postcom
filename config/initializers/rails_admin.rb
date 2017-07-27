@@ -71,6 +71,9 @@ config.navigation_static_label = "Links Úteis"
     edit do
       # exclude_fields :message, :desire, :status
     end
+    list do
+      exclude_fields :id
+    end
   end
   # INICIO COMPANY #
   config.model Company do
@@ -191,7 +194,6 @@ config.navigation_static_label = "Links Úteis"
     edit
     delete
     show_in_app
-    grid
     approving do
       # show #do/
       only Proposal
