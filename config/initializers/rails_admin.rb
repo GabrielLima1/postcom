@@ -39,12 +39,14 @@ config.navigation_static_label = "Links Úteis"
   # config.show_gravatar = true
 
   config.model User do
+    navigation_icon 'fa fa-user'
     exclude_fields_if do
       type == :datetime
     end
   end
 
   config.model Proposal do
+    navigation_icon 'fa fa-paint-brush'
     exclude_fields_if do
       type == :datetime
     end
@@ -77,6 +79,7 @@ config.navigation_static_label = "Links Úteis"
   end
   # INICIO COMPANY #
   config.model Company do
+    navigation_icon 'fa fa-building-o'
     create do
       field :name do
         required true
@@ -103,6 +106,7 @@ config.navigation_static_label = "Links Úteis"
       end
     end
     list do
+      exclude_fields :id
       exclude_fields_if do
         type == :datetime
       end
@@ -113,6 +117,7 @@ config.navigation_static_label = "Links Úteis"
 
   # INICIO DESIRE #
   config.model Desire do
+    navigation_icon 'fa fa-pencil-square-o'
     create do
       field :status do
         visible do
@@ -170,7 +175,6 @@ config.navigation_static_label = "Links Úteis"
       end
     end
     list do
-      field :id
       field :title
       field :description
       field :status
@@ -180,7 +184,6 @@ config.navigation_static_label = "Links Úteis"
       field :img2
       field :img3
     end
-
   end
   # FIM DESIRE #
 
