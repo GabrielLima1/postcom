@@ -1,4 +1,9 @@
 RailsAdmin.config do |config|
+  require Rails.root.join('lib', 'rails_admin_publish.rb')
+  RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::Publish)
+  require Rails.root.join('lib', 'rails_admin', 'approving.rb')
+  RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::Approving)
+
   config.main_app_name = ["PostCom",""]
 
 
@@ -38,13 +43,34 @@ config.navigation_static_label = "Links Úteis"
       type == :datetime
     end
   end
+
   config.model Proposal do
     exclude_fields_if do
       type == :datetime
     end
-    # create do
-    #   field :img1
-    # end
+    create do
+      field :message
+      field :desire do
+        required true
+      end
+      field :img1 do
+        required true
+      end
+      field :img2 do
+        required true
+      end
+      field :img3 do
+        required true
+      end
+      field :status do
+        visible do
+          false
+        end
+      end
+    end
+    edit do
+      # exclude_fields :message, :desire, :status
+    end
   end
   # INICIO COMPANY #
   config.model Company do
@@ -85,23 +111,35 @@ config.navigation_static_label = "Links Úteis"
   # INICIO DESIRE #
   config.model Desire do
     create do
+      field :status do
+        visible do
+          false
+        end
+      end
       field :title do
-        required true
+        html_attributes do
+         {:placeholder => "Para identificação do pedido", :size => 80} #dont use 600 as maxlength for a string field. It will break the UI
+        end
       end
       field :description do  #use second parameter to set field type
         required true #this will just set a hints text
         #to set max length use:
         html_attributes do
-         {:maxlength => 200} #dont use 600 as maxlength for a string field. It will break the UI
+         {:maxlength => 100, :placeholder => "Mensagem que será escrita na sua imagem. Limite de 100 caracteres"} #dont use 600 as maxlength for a string field. It will break the UI
+        end
+      end
+      field :action do
+        required true
+        html_attributes do
+         {:size => 80} #dont use 600 as maxlength for a string field. It will break the UI
         end
       end
       field :company do
         required true
       end
-      field :action do
-        required true
-      end
-      field :photo
+      field :img1
+      field :img2
+      field :img3
       field :user_id, :hidden do
         default_value do
           bindings[:view].current_user.id
@@ -109,23 +147,25 @@ config.navigation_static_label = "Links Úteis"
       end
 
     end
-    # edit do
-    #   field :title
-    #   field :description
-    #   field :company
-    #   field :photo
-    #   field :action
-    #   field :status do
-    #     visible do
-    #       bindings[:view].current_user.kind=="manager"
-    #     end
-    #   end
-    #   field :user_id, :hidden do
-    #     default_value do
-    #       bindings[:view].current_user.id
-    #     end
-    #   end
-    # end
+    edit do
+      field :title
+      field :description
+      field :company
+      field :status do
+        visible do
+          bindings[:view].current_user.kind=="manager"
+        end
+      end
+      field :action
+      field :img1
+      field :img2
+      field :img3
+      field :user_id, :hidden do
+        default_value do
+          bindings[:view].current_user.id
+        end
+      end
+    end
     list do
       field :id
       field :title
@@ -133,11 +173,14 @@ config.navigation_static_label = "Links Úteis"
       field :status
       field :company
       field :action
-      field :photo
+      field :img1
+      field :img2
+      field :img3
     end
 
   end
   # FIM DESIRE #
+
   config.actions do
     dashboard                     # mandatory
     index                         # mandatory
@@ -148,6 +191,19 @@ config.navigation_static_label = "Links Úteis"
     edit
     delete
     show_in_app
+    grid
+    approving do
+      # show #do/
+      only Proposal
+      #
+      # end
+    end
+    #     bindings[:view].proposal.status=="Em_Analise"
+    #   end
+    # end
+    # publish do
+    #   only Proposal
+    # end
 
     ## With an audit adapter, you can add:
     # history_index

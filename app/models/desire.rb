@@ -1,12 +1,20 @@
 class Desire < ApplicationRecord
   #enum action: [:Promoção, :ProdutoServiço, :Slide_para_Sistema_Luqy]
-  enum action: %w(Promoção Promoção/Serviço Slide_para_Sistema_Luqy)
-  enum status: %w[Em_Analise Aprovado_pelo_Cliente]
-  mount_uploader :photo, PhotoUploader
+  enum action: %w(Divulgar_Promoção Divulgar_Produto/Serviço Utilizar_para_o_Sistema_Luqy)
+  enum status: %w(Em_Analise Aprovado)
+  # status = {}
+  # status[:analise] = "Em Analise"
+  # status[:aprovado] = "Aprovado!"
+  # enum status: status
+
+  mount_uploader :img1, Img1Uploader
+  mount_uploader :img2, Img2Uploader
+  mount_uploader :img3, Img3Uploader
+
   belongs_to :user
   belongs_to :company
 
-  before_save :credit_user
+  before_create :credit_user
 
   def credit_user
     #u = self.user_id
