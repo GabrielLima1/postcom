@@ -12,7 +12,7 @@ function addBtnPrint(){
 
 $(document).on('ready pjax:success', function() {
   handleActiveBase();
-  addBtnPrint();
+  // addBtnPrint();
   function handleActiveBase() {
     $('.sub-menu').each(function () {
       if ($(this).hasClass('active')) {

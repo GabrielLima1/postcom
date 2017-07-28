@@ -176,7 +176,7 @@ pt-BR:
       ago: "atrás"
     flash:
       successful: "%{name} %{action} com sucesso"
-      error: "%{name} %{action} sem sucesso - Você não possui mais Créditos!"
+      error: "O %{name} não pode ser %{action} - Você não possui mais Créditos!"
       #message: "Você precisa colocar "
       noaction: "Nenhuma ação executada"
       model_not_found: "'%{model}' não encontrado "
