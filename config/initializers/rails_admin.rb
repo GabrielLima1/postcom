@@ -43,6 +43,7 @@ config.navigation_static_label = "Links Úteis"
     exclude_fields_if do
       type == :datetime
     end
+    exclude_fields :id, :sign_in_count, :current_sign_in_ip, :last_sign_in_ip
   end
 
   config.model Proposal do
