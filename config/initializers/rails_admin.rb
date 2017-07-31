@@ -39,11 +39,20 @@ config.navigation_static_label = "Links Úteis"
   # config.show_gravatar = true
 
   config.model User do
-    navigation_icon 'fa fa-user'
-    exclude_fields_if do
-      type == :datetime
+      navigation_icon 'fa fa-user'
+      exclude_fields_if do
+        type == :datetime
+      end
+      exclude_fields :id, :sign_in_count, :current_sign_in_ip, :last_sign_in_ip
+
+      edit do
+        fields :kind, :status, :email, :credit, :desires, :companies do
+          visible do
+            # true if bindings[:view]._current_user.kind == 'manager'
+            bindings[:view]._current_user.kind.include?("manager")
+        end
+      end
     end
-    exclude_fields :id, :sign_in_count, :current_sign_in_ip, :last_sign_in_ip
   end
 
   config.model Proposal do
@@ -74,7 +83,8 @@ config.navigation_static_label = "Links Úteis"
     edit do
       fields :img1, :img2, :img3, :status, :desire do
         visible do
-          true if bindings[:view]._current_user.kind == 'manager'
+          # true if bindings[:view]._current_user.kind == 'manager'
+          bindings[:view]._current_user.kind.include?("manager")
         end
       end
     end
