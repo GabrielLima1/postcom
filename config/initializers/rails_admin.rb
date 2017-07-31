@@ -72,7 +72,11 @@ config.navigation_static_label = "Links Úteis"
       end
     end
     edit do
-      # exclude_fields :message, :desire, :status
+      fields :img1, :img2, :img3, :status, :desire do
+        visible do
+          true if bindings[:view]._current_user.kind == 'manager'
+        end
+      end
     end
     list do
       exclude_fields :id
