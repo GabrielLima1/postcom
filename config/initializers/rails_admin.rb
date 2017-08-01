@@ -191,7 +191,7 @@ config.navigation_static_label = "Links Úteis"
     edit
     delete
     show_in_app
-    grid
+    #grid
     approving do
       # show #do/
       only Proposal
