@@ -16,6 +16,12 @@ class Desire < ApplicationRecord
 
   before_create :credit_user
 
+  after_create :set_code_number
+
+  after_save do
+    set_code_number if self.title.exclude?("#")
+  end
+
   def credit_user
     #u = self.user_id
     if self.user.credit <= 0
@@ -25,5 +31,9 @@ class Desire < ApplicationRecord
       self.user.credit -=1
       self.user.save
     end
+  end
+
+  def set_code_number
+    self.update_column(:title, "#{title} ##{id}")
   end
 end

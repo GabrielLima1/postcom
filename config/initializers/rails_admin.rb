@@ -90,6 +90,11 @@ config.navigation_static_label = "Links Úteis"
     end
     list do
       exclude_fields :id
+      field :img1 do
+        formatted_value do
+          bindings[:view].tag(:img, { :src => bindings[:object].logo_url }) << value
+        end
+      end
     end
   end
   # INICIO COMPANY #
