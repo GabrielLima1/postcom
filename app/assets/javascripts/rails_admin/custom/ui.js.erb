@@ -1,0 +1,94 @@
+function addBtnPrint(){
+  var btn = document.createElement("button");
+  var t = document.createTextNode("Imprimir");
+  btn.appendChild(t);
+  btn.id = 'btnPrint';
+  btn.className = 'btn btn-default';
+  document.querySelector('div.well').appendChild(btn);
+};
+
+function hideElementsFromPrint(){
+  document.querySelector('div.well').className += ' hidden-print';
+  document.querySelector('div.navbar-header').className += ' hidden-print';
+  document.querySelector('ol.breadcrumb').className += ' hidden-print';
+  document.querySelector('a.navbar-brand').className += ' hidden-print';
+  document.querySelector('div.col-sm-3').className += ' hidden-print';
+  document.querySelector('ul.nav-tabs').className += ' hidden-print';
+  document.querySelector('a.pjax').className += ' hidden-print';
+  document.querySelector('th.last').className += ' hidden-print';
+  document.querySelector('th.shrink').className += ' hidden-print';
+  $('table tbody tr td:last-child').addClass( 'hidden-print' );
+  $('table tbody tr td:first-child').addClass( 'hidden-print' );
+};
+
+$(document).on('ready pjax:success', function() {
+  if (top.location.pathname == '/company' || top.location.pathname == '/desire' || top.location.pathname == '/proposal' || top.location.pathname == '/user'){
+    addBtnPrint();
+
+    hideElementsFromPrint();
+
+    $("#btnPrint").click(function(){
+        window.print();
+    });
+  }
+
+  // ################## UNCONMENT THESE LINES TO ANIMATE NAVBAR ################## DO
+
+  // handleActiveBase();
+  // function handleActiveBase() {
+  //   $('.sub-menu').each(function () {
+  //     if ($(this).hasClass('active')) {
+  //       $(this).parent().prev().addClass('active');
+  //       $(this).parent().prev().addClass('open');
+  //       $(this).parent().slideDown();
+  //     }
+  //   });
+  // }
+
+});
+
+// $(function () {
+//   var width = $('.nav-stacked').width();
+//   $('.navbar-header').width(width);
+//
+//   var array_menu = [];
+//   var lvl_1 = null;
+//   var count = 0;
+//
+//   $('.sidebar-nav li').each(function (index, item) {
+//     if ($(item).hasClass('dropdown-header')) {
+//       lvl_1 = count++;
+//       array_menu[lvl_1] = []
+//     } else {
+//       $(item).addClass('sub-menu sub-menu-' + lvl_1);
+//     }
+//   });
+//
+//   for (var i = 0; i <= array_menu.length; i++) {
+//     $('.sub-menu-' + i).wrapAll("<div class='sub-menu-container' />");
+//   }
+//
+//   $('.sub-menu-container').hide();
+//
+//   handleActiveBase();
+//   function handleActiveBase() {
+//     $('.sub-menu').each(function () {
+//       if ($(this).hasClass('active')) {
+//         $(this).parent().prev().addClass('active');
+//         $(this).parent().slideDown();
+//       }
+//     });
+//   }
+//
+//   $('.dropdown-header').bind('click', function () {
+//     $('.dropdown-header').removeClass('open');
+//     $(this).addClass('open');
+//
+//     $('.dropdown-header').removeClass('active');
+//     $('.sub-menu-container').stop().slideUp();
+//     $(this).toggleClass('active');
+//     $(this).next('.sub-menu-container').stop().slideDown();
+//   });
+// });
+
+// ################## UNCONMENT THESE LINES TO ANIMATE NAVBAR ################## END

@@ -1,0 +1,50 @@
+<% @list_bg = ['info', 'success', 'danger', 'success', 'info', 'warning', 'danger', 'info', 'success'] %>
+  <div class="col credits">
+    <%= "Você possuí #{current_user.credit} créditos!"%>
+  </div>
+<% if @abstract_models %>
+  <div class="row">
+    <% index = 0 %>
+    <% @abstract_models.each do |abstract_model| %>
+      <% if authorized? :index, abstract_model %>
+        <% if index == @list_bg.length %>
+          <% index = 0 %>
+        <% end %>
+        <% index_path = index_path(model_name: abstract_model.to_param) %>
+        <% row_class = "box bg-#{ @list_bg[index].to_s } #{"link" if index_path} #{abstract_model.param_key}_links #{abstract_model.config.label_plural}" %>
+        <div class="col-sm-4">
+          <div class="<%= row_class %> box" data-link="<%= index_path %>">
+            <i class="icon-bg <%= abstract_model.config.navigation_icon.present? ? abstract_model.config.navigation_icon : 'file'  %>"></i>
+            <div class="text-center">
+              <p>
+                <%= capitalize_first_letter(abstract_model.config.label_plural) %>
+              </p>
+              <strong>
+                <%= @count[abstract_model.model.name].to_s %>
+              </strong>
+              <p>
+                <%= link_to t('admin.rollincode.ver')+' '+capitalize_first_letter(abstract_model.config.label_plural), index_path, class: 'btn btn-black pjax' %>
+              </p>
+            </div>
+          </div>
+        </div>
+        <% index += 1 %>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>
+<script>
+
+  $('.breadcrumb, .nav-tabs').hide();
+
+</script>
+<% if @auditing_adapter && authorized?(:history_index) %>
+  <div class="block" id="block-tables">
+    <div class="content">
+      <h2>
+        <%= t("admin.actions.history_index.menu") %>
+      </h2>
+      <%= render partial: 'rails_admin/main/dashboard_history' %>
+    </div>
+  </div>
+<% end %>
