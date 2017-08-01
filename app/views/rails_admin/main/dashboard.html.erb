@@ -1,6 +1,10 @@
 <% @list_bg = ['info', 'success', 'danger', 'success', 'info', 'warning', 'danger', 'info', 'success'] %>
   <div class="col credits">
-    <%= "Você possuí #{current_user.credit} créditos!"%>
+    <% if current_user.credit <=2 %>
+      <h1><%= "Seus créditos estão acabando, restam apenas #{current_user.credit} créditos!" %></h1>
+    <% else %>
+      <h1><%= "Você possuí #{current_user.credit} créditos!"%></h1>
+    <% end %>
   </div>
 <% if @abstract_models %>
   <div class="row">

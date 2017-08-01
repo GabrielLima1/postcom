@@ -1,7 +1,15 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  # rescue_from CanCan::AccessDenied do |exception|
-  #   Rails.logger.debug "Access denied on #{exception.action} #{exception.subject.inspect}"
-  #   # ...
-  # end
+
+  layout :layout_by_resource
+
+  private
+
+  def layout_by_resource
+    if devise_controller?
+      "devise"
+    else
+      "application"
+    end
+  end
 end

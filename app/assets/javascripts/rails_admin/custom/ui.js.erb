@@ -22,6 +22,7 @@ function hideElementsFromPrint(){
 };
 
 $(document).on('ready pjax:success', function() {
+
   if (top.location.pathname == '/company' || top.location.pathname == '/desire' || top.location.pathname == '/proposal' || top.location.pathname == '/user'){
     addBtnPrint();
 
