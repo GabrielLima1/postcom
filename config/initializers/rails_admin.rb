@@ -39,12 +39,24 @@ config.navigation_static_label = "Links Úteis"
   # config.show_gravatar = true
 
   config.model User do
-    exclude_fields_if do
-      type == :datetime
+      navigation_icon 'fa fa-user'
+      exclude_fields_if do
+        type == :datetime
+      end
+      exclude_fields :id, :sign_in_count, :current_sign_in_ip, :last_sign_in_ip
+
+      edit do
+        fields :kind, :status, :email, :credit, :desires, :companies do
+          visible do
+            # true if bindings[:view]._current_user.kind == 'manager'
+            bindings[:view]._current_user.kind.include?("manager")
+        end
+      end
     end
   end
 
   config.model Proposal do
+    navigation_icon 'fa fa-paint-brush'
     exclude_fields_if do
       type == :datetime
     end
@@ -69,11 +81,20 @@ config.navigation_static_label = "Links Úteis"
       end
     end
     edit do
-      # exclude_fields :message, :desire, :status
+      fields :img1, :img2, :img3, :status, :desire do
+        visible do
+          # true if bindings[:view]._current_user.kind == 'manager'
+          bindings[:view]._current_user.kind.include?("manager")
+        end
+      end
+    end
+    list do
+      exclude_fields :id
     end
   end
   # INICIO COMPANY #
   config.model Company do
+    navigation_icon 'fa fa-building-o'
     create do
       field :name do
         required true
@@ -100,6 +121,7 @@ config.navigation_static_label = "Links Úteis"
       end
     end
     list do
+      exclude_fields :id
       exclude_fields_if do
         type == :datetime
       end
@@ -110,6 +132,7 @@ config.navigation_static_label = "Links Úteis"
 
   # INICIO DESIRE #
   config.model Desire do
+    navigation_icon 'fa fa-pencil-square-o'
     create do
       field :status do
         visible do
@@ -167,7 +190,6 @@ config.navigation_static_label = "Links Úteis"
       end
     end
     list do
-      field :id
       field :title
       field :description
       field :status
@@ -177,7 +199,6 @@ config.navigation_static_label = "Links Úteis"
       field :img2
       field :img3
     end
-
   end
   # FIM DESIRE #
 
@@ -191,7 +212,6 @@ config.navigation_static_label = "Links Úteis"
     edit
     delete
     show_in_app
-    #grid
     approving do
       # show #do/
       only Proposal

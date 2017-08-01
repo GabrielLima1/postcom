@@ -25,7 +25,7 @@ module RailsAdmin
               object.update_attribute(:status, "Aprovado")
             end
 
-            flash[:success] = "#{@model_config.label} asdPedido Aprovado!"
+            flash[:success] = "#{@model_config.label} Pedido Aprovado!"
 
             redirect_to back_or_index
           end
