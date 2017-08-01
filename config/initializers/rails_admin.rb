@@ -4,7 +4,7 @@ RailsAdmin.config do |config|
   require Rails.root.join('lib', 'rails_admin', 'approving.rb')
   RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::Approving)
 
-  config.main_app_name = ["",""]
+  config.main_app_name = ["PostCom",""]
 
 
 config.navigation_static_links = {
