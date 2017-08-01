@@ -102,10 +102,33 @@
     display: block;
     width: 100%;
     padding: 15px;
-    margin-bottom: 45px;
-    margin-top: 55px;
+    // margin-bottom: 45px;
+    margin-top: 15px;
     &:hover {
       background: darken(#304158, 5%);
+    }
+  }
+
+  .btn-default {
+    text-align: center;
+    cursor: pointer;
+    background: #304158;
+    color: #fff;
+    border-radius: 3px;
+    border: 0;
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin-top: 15px;
+    &:hover {
+      background: darken(#304158, 5%);
+    }
+  }
+
+  input[type="submit"].btn-primary {
+    background: green;
+    &:hover {
+      background: darken(green, 5%);
     }
   }
 
@@ -117,6 +140,12 @@
     margin-top: 15px;
     padding-bottom: 15px;
     width: 100%;
+  }
+
+  .help-block{
+    position: absolute;
+    margin-top: -5px;
+    margin-left: 10px;
   }
 
   .input-group-addon {
