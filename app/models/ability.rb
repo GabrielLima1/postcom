@@ -14,7 +14,7 @@ class Ability
         can [:manage], Desire, user_id: user.id
         cannot [:destroy, :edit], Desire
         #can [:approving,:read, :grid], Proposal, id: (Proposal.all.select {|p| p.desire.user_id == user.id}).map {|prop| prop.id}
-        can [:read, :edit, :manage], Proposal, id: (Proposal.all.select {|p| p.desire.user_id == user.id}).map {|prop| prop.id}
+        can [:read, :edit, :approving], Proposal, id: (Proposal.all.select {|p| p.desire.user_id == user.id}).map {|prop| prop.id}
         cannot [:destroy, :create], Proposal, id: (Proposal.all.select {|p| p.desire.user_id == user.id}).map {|prop| prop.id}
 
       elsif user.kind == 'manager'
