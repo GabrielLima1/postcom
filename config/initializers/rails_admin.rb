@@ -46,7 +46,7 @@ config.navigation_static_label = "Links Úteis"
       exclude_fields :id, :sign_in_count, :current_sign_in_ip, :last_sign_in_ip
 
       edit do
-        fields :kind, :status, :email, :credit, :desires, :companies do
+        fields :plan, :kind, :status, :email, :credit, :desires, :companies do
           visible do
             # true if bindings[:view]._current_user.kind == 'manager'
             bindings[:view]._current_user.kind.include?("manager")
@@ -61,6 +61,11 @@ config.navigation_static_label = "Links Úteis"
       type == :datetime
     end
     create do
+      field :note do
+        visible do
+          bindings[:view]._current_user.kind.include?("client")
+        end
+      end
       field :message
       field :desire do
         required true
@@ -80,15 +85,29 @@ config.navigation_static_label = "Links Úteis"
         end
       end
     end
+
     edit do
-      fields :img1, :img2, :img3, :status, :desire do
+      fields :message, :img1, :img2, :img3, :status, :desire do
         visible do
-          # true if bindings[:view]._current_user.kind == 'manager'
           bindings[:view]._current_user.kind.include?("manager")
+        end
+      end
+      field :note do
+        read_only do
+          bindings[:object].status == "Aprovado"
+        end
+        visible do
+          bindings[:view]._current_user.plan.include?("diamond")
         end
       end
     end
     list do
+      field :desire
+      field :status
+      field :note
+      field :img1
+      field :img2
+      field :img3
       exclude_fields :id
     end
   end
