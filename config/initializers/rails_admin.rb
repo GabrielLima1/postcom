@@ -90,26 +90,6 @@ config.navigation_static_label = "Links Úteis"
     end
     list do
       exclude_fields :id
-      field :img1 do
-        pretty_value do
-          bindings[:view].tag(:a, {href: bindings[:object].img1.url, download: "Proposta 1", alt: 'Proposta #1'}) <<
-          bindings[:view].tag(:img, {src: bindings[:object].img1.url, width: 150})
-        end
-      end
-
-      field :img2 do
-        pretty_value do
-          bindings[:view].tag(:a, {href: bindings[:object].img2.url, download: "Proposta 2", alt: 'Proposta #2'}) <<
-          bindings[:view].tag(:img, {src: bindings[:object].img2.url, width: 150})
-        end
-      end
-
-      field :img3 do
-        pretty_value do
-          bindings[:view].tag(:a, {href: bindings[:object].img3.url, download: "Proposta 3", alt: 'Proposta #3'}) <<
-          bindings[:view].tag(:img, {src: bindings[:object].img3.url, width: 150})
-        end
-      end
     end
   end
   # INICIO COMPANY #
