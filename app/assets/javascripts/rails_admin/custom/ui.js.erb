@@ -21,7 +21,16 @@ function hideElementsFromPrint(){
   $('table tbody tr td:first-child').addClass( 'hidden-print' );
 };
 
+function setDownloadLinksOnImages() {
+  document.querySelector('td.img1_field > a').setAttribute("download","Proposta 1");
+  document.querySelector('td.img2_field > a').setAttribute("download","Proposta 2");
+  document.querySelector('td.img3_field > a').setAttribute("download","Proposta 3");
+  document.querySelector('img.img-thumbnail').setAttribute("width","200");
+}
+
 $(document).on('ready pjax:success', function() {
+
+  setDownloadLinksOnImages();
 
   if (top.location.pathname == '/company' || top.location.pathname == '/desire' || top.location.pathname == '/proposal' || top.location.pathname == '/user'){
     addBtnPrint();
