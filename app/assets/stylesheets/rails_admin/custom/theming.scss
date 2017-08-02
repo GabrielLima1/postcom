@@ -10,6 +10,21 @@ body {
   background: rgb(59, 78, 89);
 }
 
+#bulk_form > table > tbody > tr > td.img1_field.carrierwave_type > a {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+#bulk_form > table > tbody > tr > td.img2_field.carrierwave_type > a {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+#bulk_form > table > tbody > tr > td.img3_field.carrierwave_type > a {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
 .page-header.dashboard {
   border-color: $ra-primary;
 }
