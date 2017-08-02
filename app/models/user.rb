@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   enum kind: [:client, :manager]
   enum status: [:active, :inactive]
+  enum plan: [:bronze, :silver, :gold, :diamond]
   has_many :companies
   has_many :desires
 end
