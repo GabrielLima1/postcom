@@ -29,10 +29,9 @@ function setDownloadLinksOnImages() {
 
 $(document).on('ready pjax:success', function() {
 
-  setDownloadLinksOnImages();
-
   if (top.location.pathname == '/company' || top.location.pathname == '/desire' || top.location.pathname == '/proposal' || top.location.pathname == '/user'){
     addBtnPrint();
+    setDownloadLinksOnImages();
 
     hideElementsFromPrint();
 
