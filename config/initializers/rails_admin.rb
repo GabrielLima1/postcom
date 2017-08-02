@@ -8,8 +8,8 @@ RailsAdmin.config do |config|
 
 
 config.navigation_static_links = {
-  'Comprar Créditos' => 'https://www.facebook.com/',
-  'Dúvidas' => 'https://www.facebook.com/'
+  'Comprar Créditos' => 'http://postcom.com.br/planos/',
+  'Dúvidas' => '#'
 }
 
 config.navigation_static_label = "Links Úteis"
