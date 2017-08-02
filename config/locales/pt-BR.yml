@@ -141,6 +141,9 @@ pt-BR:
         message: "Mensagem"
         status: "Status"
         desire: "Pedido"
+        img1: "Imagem 1"
+        img2: "Imagem 2"
+        img3: "Imagem 3"
       user:
         id: "Código"
         name: "Nome"
