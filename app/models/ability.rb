@@ -18,6 +18,7 @@ class Ability
         cannot [:destroy, :create], Proposal, id: (Proposal.all.select {|p| p.desire.user_id == user.id}).map {|prop| prop.id}
 
       elsif user.kind == 'manager'
+        #cannot [:approving], Proposal
         can :manage, :all
       end
     end

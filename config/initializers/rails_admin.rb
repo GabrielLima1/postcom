@@ -233,22 +233,12 @@ config.navigation_static_label = "Links Úteis"
     #export
     bulk_delete
     show
+    approving do
+      only Proposal
+    end
     edit
     delete
     show_in_app
-    approving do
-      only Proposal
-      # visible do
-      #   bindings[:view].current_user.kind=="client"
-      # end
-    end
-    #     bindings[:view].proposal.status=="Em_Analise"
-    #   end
-    # end
-    # publish do
-    #   only Proposal
-    # end
-
     ## With an audit adapter, you can add:
     # history_index
     # history_show

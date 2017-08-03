@@ -14,6 +14,8 @@ module RailsAdmin
         end
         register_instance_option :visible? do
           bindings[:object].class == Proposal
+          #bindings[:object]._current_user.kind.include?("client")
+          # bindings[:object].a.kind == 'client'
         end
         register_instance_option :controller do
           Proc.new do
@@ -28,7 +30,7 @@ module RailsAdmin
         end
 
         register_instance_option :link_icon do
-          'fa fa-thumbs-up'
+          'fa fa-download'
         end
         # register_instance_option :pjax? do
         #   false
