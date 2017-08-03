@@ -237,9 +237,10 @@ config.navigation_static_label = "Links Úteis"
     delete
     show_in_app
     approving do
-      visible do
-        bindings[:view].current_user.kind=="client"
-      end
+      only Proposal
+      # visible do
+      #   bindings[:view].current_user.kind=="client"
+      # end
     end
     #     bindings[:view].proposal.status=="Em_Analise"
     #   end
