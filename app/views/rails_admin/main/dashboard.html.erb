@@ -1,9 +1,19 @@
+<style media="screen">
+.red{
+  color: red;
+}
+.green{
+  color: #305BB3;
+}
+</style>
 <% @list_bg = ['info', 'success', 'danger', 'success', 'info', 'warning', 'danger', 'info', 'success'] %>
   <div class="col credits">
-    <% if current_user.credit <=2 %>
-      <h1><%= "Seus créditos estão acabando, restam apenas #{current_user.credit} créditos!" %></h1>
+    <% if current_user.credit == 0 %>
+    <h1 class="red"><%= "Seus créditos acabaram, você possuí #{current_user.credit} créditos!" %> <a href="http://postcom.com.br/planos/" target="_blank">Regarregue aqui!</a></h1>
+    <% elsif current_user.credit <=2 %>
+    <h1 class="red"><%= "Seus créditos estão acabando, restam apenas #{current_user.credit} créditos!" %></h1>
     <% else %>
-      <h1><%= "Você possuí #{current_user.credit} créditos!"%></h1>
+      <h1 class="green"><%= "Você possuí #{current_user.credit} créditos!"%></h1>
     <% end %>
   </div>
 <% if @abstract_models %>
