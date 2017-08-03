@@ -8,8 +8,7 @@ RailsAdmin.config do |config|
 
 
 config.navigation_static_links = {
-  'Comprar Créditos' => 'http://postcom.com.br/planos/',
-  'Dúvidas' => '#'
+  'Comprar Créditos' => 'http://postcom.com.br/planos/'#,'Dúvidas' => '#'
 }
 
 config.navigation_static_label = "Links Úteis"
@@ -117,9 +116,15 @@ config.navigation_static_label = "Links Úteis"
     create do
       field :name do
         required true
+        html_attributes do
+         {:placeholder => "Nome da Empresa.", :size => 80} #dont use 600 as maxlength for a string field. It will break the UI
+        end
       end
       field :description do
         required true
+        html_attributes do
+         {:placeholder => "Breve descrição de sua Empresa.\nLimite de 100 caracteres", :size => 120} #dont use 600 as maxlength for a string field. It will break the UI
+        end
       end
       field :photo
       field :user_id, :hidden do
