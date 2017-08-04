@@ -44,6 +44,10 @@ config.navigation_static_label = "Links Úteis"
       end
       exclude_fields :id, :sign_in_count, :current_sign_in_ip, :last_sign_in_ip
 
+      # list do
+      #     field
+      # end
+
       edit do
         fields :plan, :kind, :status, :email, :credit, :desires, :companies do
           visible do
