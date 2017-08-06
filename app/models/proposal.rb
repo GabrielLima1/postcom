@@ -4,5 +4,10 @@ class Proposal < ApplicationRecord
   mount_uploader :img1, Img1Uploader
   mount_uploader :img2, Img2Uploader
   mount_uploader :img3, Img3Uploader
-  
+
+  after_create :send_email_proposta
+
+  def send_email_proposta
+    self.desire.user.send_email_proposta    
+  end
 end
