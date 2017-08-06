@@ -1,11 +1,6 @@
 source 'https://rubygems.org'
 
-git_source(:github) do |repo_name|
-  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
-  "https://github.com/#{repo_name}.git"
-end
-
-
+gem "mysql2"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.4'
 # Use postgresql as the database for Active Record
@@ -31,6 +26,9 @@ gem 'bootstrap-sass'
 gem 'pry'
 gem 'simple_form'
 gem 'mini_magick', '~> 4.3'
+gem 'woocommerce_api', '~> 1.2.1'
+gem 'resque'
+gem 'dotenv-rails', :groups => [:development, :test]
 
 #gem 'will_paginate', '~> 3.1.0'
 
@@ -62,7 +60,8 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'pry-rails'
+  gem 'annotate', :require => false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :jruby]
