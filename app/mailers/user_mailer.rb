@@ -1,6 +1,6 @@
 class UserMailer < ActionMailer::Base
 
-  default :from => 'atendimento@agroinova.com.br'
+  default :from => 'gabitobalima@gmail.com'
 
   def send_email_creditos(user)
     @user = user
