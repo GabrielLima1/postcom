@@ -51,7 +51,7 @@ class UserService
     end
     user.credit = user.credit + creditos
     if user.save
-      UserMailer.send_email_creditos(user, creditos)
+      UserMailer.email_creditos(user, creditos)
     else
       false
     end
