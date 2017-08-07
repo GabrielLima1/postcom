@@ -18,15 +18,12 @@ module Postcom3
     config.i18n.default_locale = "pt-BR"
     config.encoding = "utf-8"
     config.filter_parameters += [:password, :password_confirmation]
-
+    config.eager_load_paths += Dir["#{config.root}/lib/**/"]
     config.autoload_paths += %W(
     #{config.root}/lib
     #{config.root}/app/controllers/concerns
     #{config.root}/app/models/concerns
     #{config.root}/app/services
-    #{config.root}/app/reports
-    #{config.root}/app/decorators
-    #{config.root}/app/presenters
     )
   end
 end
