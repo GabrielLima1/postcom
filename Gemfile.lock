@@ -142,7 +142,6 @@ GEM
     multi_json (1.12.1)
     multi_xml (0.6.0)
     mustermann (1.0.0)
-    mysql2 (0.4.8)
     nested_form (0.3.2)
     nio4r (2.1.0)
     nokogiri (1.8.0)
@@ -299,7 +298,6 @@ DEPENDENCIES
   jquery-rails
   listen (~> 3.0.5)
   mini_magick (~> 4.3)
-  mysql2
   pg (~> 0.18)
   pry
   pry-byebug

@@ -9,11 +9,11 @@ class User < ApplicationRecord
   enum plan: [:bronze, :silver, :gold, :diamond]
   has_many :companies
   has_many :desires
-  after_create :send_email_usuario
+  #after_create :send_email_usuario
 
   def self.perform(order)
     service = UserService.new
-    if sevice.import_order(order)
+    if service.import_order(order)
       # send_email_creditos
       Wordpress.complete_order(order)
     end

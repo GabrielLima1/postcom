@@ -24,7 +24,7 @@ class UserService
     unless user
       password = generate_code(7)
       nome = user_data["first_name"]
-      nome = nome +" "+ data["last_name"] unless data["last_name"].blank?
+      nome = nome +" "+ user_data["last_name"] unless user_data["last_name"].blank?
       User.create(email: user_data["email"], password: password, name: nome)
     end
     user
