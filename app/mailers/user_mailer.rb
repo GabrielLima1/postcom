@@ -1,27 +1,29 @@
 class UserMailer < ActionMailer::Base
 
-  default :from => 'atendimento@agroinova.com.br'
-
-  def send_email_creditos(user)
+  def email_creditos(user, creditos)
     @user = user
+    @creditos = creditos
     mail(:to => user.email,
-      :subject => "Postcom - Créditos adicionados")
+      :subject => "[Postcom] Créditos adicionados")
   end
 
-  def send_email_usuario(user)
+  def email_usuario(user, password)
     @user = user
+    @password = password
     mail(:to => user.email,
       :subject => "[Postcom] Usuário criado")
   end
 
-  def send_email_proposta(user)
+  def email_proposta(user, proposta)
     @user = user
+    @proposta = proposta
     mail(:to => user.email,
       :subject => "[Postcom] Proposta Recebida")
   end
 
-  def send_email_desejo(user)
+  def email_desejo(user, desejo)
     @user = user
+    @desejo = desejo
     mail(:to => user.email,
       :subject => "[Postcom] Desejo Recebido")
   end

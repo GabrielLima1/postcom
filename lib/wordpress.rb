@@ -18,7 +18,7 @@ class Wordpress
     products['products']
   end
 
-  def email_note order, message
+  def self.email_note order, message
     data = {
       order_note: {
         note: message,
@@ -48,7 +48,7 @@ class Wordpress
     @error = "Erro ao importar pedidos do Wordpress, favor verificar configurações."
   end
 
-  def get_notes order
+  def self.get_notes order
     all_notes = woocommerce.get("orders/#{order["id"]}/notes").parsed_response
     all_notes["order_notes"]
   end

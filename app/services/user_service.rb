@@ -25,7 +25,9 @@ class UserService
       password = generate_code(7)
       nome = user_data["first_name"]
       nome = nome +" "+ user_data["last_name"] unless user_data["last_name"].blank?
-      User.create(email: user_data["email"], password: password, name: nome)
+      if User.create(email: user_data["email"], password: password, name: nome)
+        UserMailer.email_usuario(user, password)
+      end
     end
     user
   end
@@ -36,20 +38,21 @@ class UserService
   end
 
   def import_data(user, order_items)
-    begin
-      order_items.each do |order_item|
-        product_id = order_item["product_id"]
-        if planos[product_id]
-          plano = planos[product_id]["plano"]
-          creditos = planos[product_id]["creditos"]
-          user.credit = user.credit + creditos
-          user.plan = plano
-          user.save
-        else
-          false
-        end
+    creditos = 0
+    order_items.each do |order_item|
+      product_id = order_item["product_id"]
+      if planos[product_id]
+        plano = planos[product_id]["plano"]
+        creditos += planos[product_id]["creditos"]
+        user.plan = plano
+      else
+        false
       end
-    rescue
+    end
+    user.credit = user.credit + creditos
+    if user.save
+      UserMailer.email_creditos(user, creditos)
+    else
       false
     end
   end

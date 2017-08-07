@@ -8,6 +8,6 @@ class Proposal < ApplicationRecord
   after_create :send_email_proposta
 
   def send_email_proposta
-    self.desire.user.send_email_proposta    
+    UserMailer.email_proposta(self.desire.user, self)    
   end
 end
