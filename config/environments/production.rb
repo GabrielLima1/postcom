@@ -60,16 +60,16 @@ Rails.application.configure do
   config.action_mailer.perform_caching = false
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default_options = {from: ''}
+  config.action_mailer.default_options = {from: 'gabitobalima@gmail.com'}
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address: "smtp.gmail.com",
     port: 587,
-    domain: "lalala.com.br",
+    domain: "gmail.com",
     authentication: "plain",
     enable_starttls_auto: true,
-    user_name: "",
-    password: ""
+    user_name: "gabitobalima@gmail.com",
+    password: "8462791355@ana"
   }
 
   # Ignore bad email addresses and do not raise email delivery errors.
