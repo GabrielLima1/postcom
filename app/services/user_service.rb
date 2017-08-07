@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-class User::UserService
+class UserService
 
   def planos
     {
@@ -23,7 +23,9 @@ class User::UserService
     user = User.find_by_email(user_data["email"])
     unless user
       password = generate_code(7)
-      User.create(email: user_data["email"], password: password)
+      nome = user_data["first_name"]
+      nome = nome +" "+ data["last_name"] unless data["last_name"].blank?
+      User.create(email: user_data["email"], password: password, name: nome)
     end
     user
   end
