@@ -249,8 +249,8 @@ pt-BR:
         breadcrumb: "Histórico"
       approving:
         title: "Aprovar/Negar '%{object_label}' "
-        menu: "Aprovado/Negado"
-        breadcrumb: "Aprovado/Negado"
+        menu: "Aprovar Proposta"
+        breadcrumb: "Aprovar Proposta"
     form:
       cancel: "Cancelar"
       basic_info: "Informação Básica"

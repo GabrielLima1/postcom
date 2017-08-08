@@ -30,7 +30,7 @@ module RailsAdmin
         end
 
         register_instance_option :link_icon do
-          'fa fa-download'
+          'fa fa-thumbs-o-up'
         end
         # register_instance_option :pjax? do
         #   false
