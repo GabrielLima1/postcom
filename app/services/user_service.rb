@@ -7,7 +7,8 @@ class UserService
       14849=>{"plano"=>"diamond", "creditos"=>30},
       14847=>{"plano"=>"gold", "creditos"=>25},
       14845=>{"plano"=>"silver", "creditos"=>15},
-      14835=>{"plano"=>"bronze", "creditos"=>5}
+      14835=>{"plano"=>"bronze", "creditos"=>5},
+      15001=>{"plano"=>"bronze", "creditos"=>1}
     }
   end
 
