@@ -69,7 +69,7 @@ Rails.application.configure do
     domain: "postcom.com.br",
     authentication: "plain",
     enable_starttls_auto: true,
-    user_name: 'PostCom <nao-responda@postcom.com.br>',
+    user_name: ENV["EMAIL_USER_NAME"],
     password: ENV["EMAIL_PASSWORD"]
   }
 
