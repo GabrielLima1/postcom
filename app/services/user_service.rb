@@ -26,9 +26,8 @@ class UserService
       password = generate_code(7)
       nome = user_data["first_name"]
       nome = nome +" "+ user_data["last_name"] unless user_data["last_name"].blank?
-      if User.create(email: user_data["email"], password: password, name: nome)
-        UserMailer.email_usuario(user, password).deliver
-      end
+      user = User.create(email: user_data["email"], password: password, name: nome)
+      UserMailer.email_usuario(user, password).deliver
     end
     user
   end
