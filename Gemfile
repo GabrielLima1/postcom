@@ -19,6 +19,8 @@ gem 'rails_admin'
 gem 'devise'
 gem 'cancancan','~> 1.15.0'
 gem 'carrierwave'
+gem 'cloudinary'
+
 gem 'rails_admin_rollincode', :git => 'https://github.com/GabrielLima1/color.git'
 gem 'twitter-bootstrap-rails'
 gem 'bootstrap-sass'

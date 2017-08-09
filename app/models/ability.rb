@@ -10,6 +10,7 @@ class Ability
         can [:read, :edit], User.where(id: user.id)
         can :access, :rails_admin
         can :dashboard
+        # cannot [:destroy], Company
         can [:create, :read, :edit], Company, user_id: user.id
         can [:manage], Desire, user_id: user.id
         cannot [:destroy, :edit], Desire

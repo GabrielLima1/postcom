@@ -1,0 +1,10 @@
+# config/cloudinary.yml
+development:
+  cloud_name: "gabitobalima"
+  api_key: "126494115285625"
+  api_secret: "AKzT2PR3YvkZnuedtIpUEnKduXY"
+
+production:
+  cloud_name: "gabitobalima"
+  api_key: "126494115285625"
+  api_secret: "AKzT2PR3YvkZnuedtIpUEnKduXY"
