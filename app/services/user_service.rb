@@ -17,7 +17,6 @@ class UserService
     order_items = order["line_items"]
 
     user = import_user(user_data)
-    binding.pry
     import_data(user, order_items)
   end
 
@@ -27,9 +26,8 @@ class UserService
       password = generate_code(7)
       nome = user_data["first_name"]
       nome = nome +" "+ user_data["last_name"] unless user_data["last_name"].blank?
-      if User.create(email: user_data["email"], password: password, name: nome)
-        UserMailer.email_usuario(user, password).deliver
-      end
+      user = User.create(email: user_data["email"], password: password, name: nome)
+      UserMailer.email_usuario(user, password).deliver
     end
     user
   end
@@ -52,7 +50,6 @@ class UserService
       end
     end
     user.credit = user.credit + creditos
-    binding.pry
     if user.save
       UserMailer.email_creditos(user, creditos).deliver
     else
