@@ -51,6 +51,7 @@ class UserService
       end
     end
     user.credit = user.credit + creditos
+    binding.pry
     if user.save
       UserMailer.email_creditos(user, creditos).deliver
     else
