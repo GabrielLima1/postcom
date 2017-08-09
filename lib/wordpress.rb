@@ -35,7 +35,7 @@ class Wordpress
       }
     }
     #PUT para mudar a ordem para concluída
-    # woocommerce.put("orders/#{order["id"]}", data).parsed_response
+    woocommerce.put("orders/#{order["id"]}", data).parsed_response
   end
 
   def self.get_orders
