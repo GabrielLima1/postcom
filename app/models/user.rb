@@ -9,6 +9,7 @@ class User < ApplicationRecord
   enum plan: [:bronze, :silver, :gold, :diamond]
   has_many :companies
   has_many :desires
+  @queue = :file_process
 
   def self.perform(order)
     service = UserService.new
