@@ -17,6 +17,7 @@ class UserService
     order_items = order["line_items"]
 
     user = import_user(user_data)
+    binding.pry
     import_data(user, order_items)
   end
 
