@@ -60,16 +60,16 @@ Rails.application.configure do
   config.action_mailer.perform_caching = false
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default_options = {from: 'gabitobalima@gmail.com'}
+  config.action_mailer.default_options = {from: 'nao-responda@postcom.com.br'}
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address: "smtp.gmail.com",
+    address: "br214.hostgator.com.br",
     port: 587,
-    domain: "gmail.com",
+    domain: "postcom.com.br",
     authentication: "plain",
     enable_starttls_auto: true,
-    user_name: "gabitobalima@gmail.com",
-    password: "8462791355@ana"
+    user_name: "nao-responda@postcom.com.br",
+    password: "rdx@1209"
   }
 
   # Ignore bad email addresses and do not raise email delivery errors.
