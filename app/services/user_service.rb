@@ -21,7 +21,7 @@ class UserService
   end
 
   def import_user(user_data)
-    @user = User.find_by_email(user_data["email"])
+    user = User.find_by_email(user_data["email"])
     unless user
       password = generate_code(7)
       nome = user_data["first_name"]
