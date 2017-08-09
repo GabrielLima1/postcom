@@ -21,7 +21,7 @@ class UserService
   end
 
   def import_user(user_data)
-    user = User.find_by_email(user_data["email"])
+    @user = User.find_by_email(user_data["email"])
     unless user
       password = generate_code(7)
       nome = user_data["first_name"]
@@ -45,13 +45,13 @@ class UserService
       if planos[product_id]
         plano = planos[product_id]["plano"]
         creditos += planos[product_id]["creditos"]
-        user.plan = plano
+        @user.plan = plano
       else
         false
       end
     end
-    user.credit = user.credit + creditos
-    if user.save
+    @user.credit = @user.credit + creditos
+    if @user.save
       UserMailer.email_creditos(user, creditos)
     else
       false
