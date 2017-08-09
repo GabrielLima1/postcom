@@ -1,5 +1,4 @@
 class UserMailer < ActionMailer::Base
-  #default :from => 'gabitobalima@gmail.com'
 
   def email_creditos(user, creditos)
     @user = user

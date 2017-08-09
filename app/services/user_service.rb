@@ -27,7 +27,7 @@ class UserService
       nome = user_data["first_name"]
       nome = nome +" "+ user_data["last_name"] unless user_data["last_name"].blank?
       if User.create(email: user_data["email"], password: password, name: nome)
-        UserMailer.email_usuario(user, password)
+        UserMailer.email_usuario(user, password).deliver
       end
     end
     user
@@ -52,7 +52,7 @@ class UserService
     end
     user.credit = user.credit + creditos
     if user.save
-      UserMailer.email_creditos(user, creditos)
+      UserMailer.email_creditos(user, creditos).deliver
     else
       false
     end
