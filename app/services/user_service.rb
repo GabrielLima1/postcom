@@ -39,7 +39,7 @@ class UserService
   end
 
   def import_data(user, order_items)
-    p user
+    p user_name
     creditos = 0
     order_items.each do |order_item|
       product_id = order_item["product_id"]
