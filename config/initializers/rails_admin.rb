@@ -8,7 +8,7 @@ RailsAdmin.config do |config|
 
 
 config.navigation_static_links = {
-  'Comprar Créditos' => 'http://postcom.com.br/planos/'#,'Dúvidas' => '#'
+  'Comprar Créditos' => 'http://postcom.com.br/planos/','Dúvidas' => 'https://www.youtube.com/channel/UCF0Pf7AJpeqpuq6WnOKqmqA', 'Fale Conosco' => 'http://postcom.com.br/contato/'
 }
 
 config.navigation_static_label = "Links Úteis"
