@@ -8,7 +8,7 @@ class UserMailer < ActionMailer::Base
   end
 
   def email_admin()
-    mail(:to => "gabitobalima@gmail.com", "contato@postcom.com.br", "rodox1209@gmail.com",
+    mail(:to => ["gabitobalima@gmail.com", "contato@postcom.com.br", "rodox1209@gmail.com"],
       :subject => "[PostCom] Você Recebeu um Novo Pedido")
   end
 
