@@ -40,5 +40,6 @@ class Desire < ApplicationRecord
 
   def send_email_desejo
     UserMailer.email_desejo(self.user, self).deliver
+    UserMailer.email_admin.deliver
   end
 end

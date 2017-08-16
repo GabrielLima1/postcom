@@ -7,6 +7,11 @@ class UserMailer < ActionMailer::Base
       :subject => "[Postcom] Créditos adicionados")
   end
 
+  def email_admin()
+    mail(:to => "gabitobalima@gmail.com",
+      :subject => "[PostCom] Você Recebeu um Novo Pedido")
+  end
+
   def email_usuario(user, password)
     @user = user
     @password = password
