@@ -133,9 +133,9 @@ pt-BR:
         photo: "Imagem de Referência"
         action: "Objetivo"
         status: "Status"
-        img1: "Imagem de Referência 1"
-        img2: "Imagem de Referência 2"
-        img3: "Imagem de Referência 3"
+        img1: "Imagem"
+        img2: "Imagem"
+        img3: "Imagem"
         created_at: "Criado em"
       proposal:
         id: "Código"
