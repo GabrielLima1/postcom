@@ -230,6 +230,7 @@ config.navigation_static_label = "Links Úteis"
       field :img1
       field :img2
       field :img3
+      field :created_at
     end
   end
   # FIM DESIRE #
