@@ -136,6 +136,7 @@ pt-BR:
         img1: "Imagem de Referência 1"
         img2: "Imagem de Referência 2"
         img3: "Imagem de Referência 3"
+        created_at: "Criado em"
       proposal:
         id: "Código"
         img1: "Imagem Proposta 1"
