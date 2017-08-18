@@ -121,11 +121,14 @@ pt-BR:
     attributes:
       company:
         name: "Nome"
+        acting: "Área de atuação"
         page_face: "Página do Facebook"
         profile_insta: "Perfil do Instagram"
         city: "Estado/Cidade"
+        public: "Público alvo"
         description: "Descrição"
         photo: "Logo"
+        color: "Cores"
         user: "Usuario"
       desire:
         id: "Código"
@@ -133,7 +136,6 @@ pt-BR:
         description: "Mensagem principal"
         company: "Empresa"
         user: "Usuario"
-        photo: "Imagem de Referência"
         action: "Objetivo"
         status: "Status"
         img1: "Imagem"

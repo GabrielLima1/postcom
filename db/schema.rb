@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170818025942) do
+ActiveRecord::Schema.define(version: 20170818032938) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,10 @@ ActiveRecord::Schema.define(version: 20170818025942) do
     t.string   "photo"
     t.string   "page_face"
     t.string   "profile_insta"
+    t.string   "city"
+    t.text     "public"
+    t.string   "acting"
+    t.string   "color"
     t.index ["user_id"], name: "index_companies_on_user_id", using: :btree
   end
 

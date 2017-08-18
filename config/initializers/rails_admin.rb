@@ -122,23 +122,46 @@ config.navigation_static_label = "Links Úteis"
       field :name do
         required true
         html_attributes do
-         {:placeholder => "Nome da Empresa.", :size => 80} #dont use 600 as maxlength for a string field. It will break the UI
+         {:placeholder => "Nome da empresa.", :size => 80} #dont use 600 as maxlength for a string field. It will break the UI
+        end
+      end
+      field :acting do
+        html_attributes do
+         {:placeholder => "Ex: Frigorifico, Propaganda, Redes Supermercado, Confecção e etc..", :size => 80} #dont use 600 as maxlength for a string field. It will break the UI
         end
       end
       field :page_face do
         html_attributes do
-         {:placeholder => "Nome da sua Página.", :size => 80} #dont use 600 as maxlength for a string field. It will break the UI
+         {:placeholder => "Nome da sua página.", :size => 80} #dont use 600 as maxlength for a string field. It will break the UI
         end
       end
       field :profile_insta do
         html_attributes do
-         {:placeholder => "Nome do seu Perfil.", :size => 80} #dont use 600 as maxlength for a string field. It will break the UI
+         {:placeholder => "Nome do seu perfil.", :size => 80} #dont use 600 as maxlength for a string field. It will break the UI
+        end
+      end
+      field :city do
+        html_attributes do
+         {:placeholder => "Estado/Cidade de sua empresa", :size => 80} #dont use 600 as maxlength for a string field. It will break the UI
+        end
+      end
+      field :public do
+        html_attributes do
+         {:placeholder => "Ex: Jovens entre 17 e 25 anos de classe média, compram na minha loja.", :size => 80} #dont use 600 as maxlength for a string field. It will break the UI
         end
       end
       field :description do
         required true
         html_attributes do
-         {:placeholder => "Breve descrição de sua Empresa.\nLimite de 100 caracteres", :size => 120} #dont use 600 as maxlength for a string field. It will break the UI
+         {:placeholder => "Breve descrição de sua empresa. Limite de 100 caracteres", :size => 120} #dont use 600 as maxlength for a string field. It will break the UI
+        end
+      end
+      field :color do
+        label do
+          "Cores da sua empresa"
+        end
+        html_attributes do
+         {:placeholder => "Ex: Vermelho, Azul e Branco.", :size => 60} #dont use 600 as maxlength for a string field. It will break the UI
         end
       end
       field :photo do
