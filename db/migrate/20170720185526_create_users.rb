@@ -3,7 +3,7 @@ class CreateUsers < ActiveRecord::Migration[5.0]
     create_table :users do |t|
       t.string :name
       t.integer :kind, default: "client"
-      t.integer :status
+      t.integer :status, default: "inactive"
 
       t.timestamps
     end

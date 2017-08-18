@@ -178,6 +178,12 @@ config.navigation_static_label = "Links Úteis"
     end
     edit do
       field :name
+      field :acting
+      field :page_face
+      field :profile_insta
+      field :city
+      field :public
+      field :color
       field :description
       field :photo
       field :user_id, :hidden do
@@ -189,7 +195,13 @@ config.navigation_static_label = "Links Úteis"
     list do
       field :name
       field :description
+      field :city
       field :photo
+      field :public
+      field :acting
+      field :color
+      field :page_face
+      field :profile_insta
       exclude_fields_if do
         type == :datetime
       end
