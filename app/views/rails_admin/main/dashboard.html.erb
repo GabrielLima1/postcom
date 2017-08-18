@@ -31,6 +31,12 @@
               </strong>
               <p>
                 <%= link_to t('admin.rollincode.ver')+' '+capitalize_first_letter(abstract_model.config.label_plural), index_path, class: 'btn btn-black pjax' %>
+
+                <% if abstract_model.model.name=="Company" %>
+                  <%= link_to 'Como criar?', "https://youtu.be/KqoXp-IHe1w?t=21s", target: "_blank", class: 'btn btn-black' %><!--<a href="https://www.youtube.com/feed/history" target="_blank" class="btn btn-black pjax">Como Criar?</a>-->
+                <% elsif abstract_model.model.name=="Desire" %>
+                  <%= link_to 'Como criar?', "https://youtu.be/KqoXp-IHe1w?t=1m21s", target: "_blank", class: 'btn btn-black' %><!--<a href="https://www.youtube.com/feed/history" target="_blank" class="btn btn-black pjax">Como Criar?</a>-->
+                <% end %>
               </p>
             </div>
           </div>

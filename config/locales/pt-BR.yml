@@ -121,6 +121,9 @@ pt-BR:
     attributes:
       company:
         name: "Nome"
+        page_face: "Página do Facebook"
+        profile_insta: "Perfil do Instagram"
+        city: "Estado/Cidade"
         description: "Descrição"
         photo: "Logo"
         user: "Usuario"

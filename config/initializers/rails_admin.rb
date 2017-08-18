@@ -125,13 +125,27 @@ config.navigation_static_label = "Links Úteis"
          {:placeholder => "Nome da Empresa.", :size => 80} #dont use 600 as maxlength for a string field. It will break the UI
         end
       end
+      field :page_face do
+        html_attributes do
+         {:placeholder => "Nome da sua Página.", :size => 80} #dont use 600 as maxlength for a string field. It will break the UI
+        end
+      end
+      field :profile_insta do
+        html_attributes do
+         {:placeholder => "Nome do seu Perfil.", :size => 80} #dont use 600 as maxlength for a string field. It will break the UI
+        end
+      end
       field :description do
         required true
         html_attributes do
          {:placeholder => "Breve descrição de sua Empresa.\nLimite de 100 caracteres", :size => 120} #dont use 600 as maxlength for a string field. It will break the UI
         end
       end
-      field :photo
+      field :photo do
+        label do
+          "Seu Logo"
+        end
+      end
       field :user_id, :hidden do
         default_value do
           bindings[:view].current_user.id

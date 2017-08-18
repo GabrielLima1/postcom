@@ -36,10 +36,10 @@
   }
 }
 
-.bckg-dark {
-  background: url('https://source.unsplash.com/1920x1080/?landscape') center fixed;
-  background-size: cover;
-}
+// .bckg-dark {
+//   background: url('https://source.unsplash.com/1920x1080/?landscape') center fixed;
+//   background-size: cover;
+// }
 
 .centered {
   left: 50%;
@@ -147,6 +147,15 @@
   }
 
   input[type="text"], input[type="email"], input[type="password"] {
+    background-color: transparent;
+    border: 0;
+    border-bottom: 1px solid #47566c;
+    color: #fff;
+    margin-top: 15px;
+    padding-bottom: 15px;
+    width: 100%;
+  }
+  #phone {
     background-color: transparent;
     border: 0;
     border-bottom: 1px solid #47566c;
