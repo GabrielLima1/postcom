@@ -1,10 +1,11 @@
 # config/cloudinary.yml
+#ENV["CLOUD_NAME"]
 development:
-  cloud_name: "gabitobalima"
-  api_key: "126494115285625"
-  api_secret: "AKzT2PR3YvkZnuedtIpUEnKduXY"
+  cloud_name: ENV["CLOUD_NAME"]
+  api_key: ENV["CLOUD_KEY"]
+  api_secret: ENV["CLOUD_SECRET"]
 
 production:
-  cloud_name: "gabitobalima"
-  api_key: "126494115285625"
-  api_secret: "AKzT2PR3YvkZnuedtIpUEnKduXY"
+  cloud_name: ENV["CLOUD_NAME"]
+  api_key: ENV["CLOUD_KEY"]
+  api_secret: ENV["CLOUD_SECRET"]

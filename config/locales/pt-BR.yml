@@ -134,6 +134,8 @@ pt-BR:
         id: "Código"
         title: "Titulo"
         description: "Mensagem principal"
+        observation: "Observação"
+        format: "Formato"
         company: "Empresa"
         user: "Usuario"
         action: "Objetivo"
