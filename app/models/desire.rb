@@ -2,6 +2,7 @@ class Desire < ApplicationRecord
   #enum action: [:Promoção, :ProdutoServiço, :Slide_para_Sistema_Luqy]
   enum action: %w(Divulgar_Promoção Divulgar_Produto/Serviço Utilizar_para_o_Sistema_Luqy)
   enum status: %w(Em_Analise Aprovado)
+  enum status: %w(Em_Analise Aprovado)
   # status = {}
   # status[:analise] = "Em Analise"
   # status[:aprovado] = "Aprovado!"
