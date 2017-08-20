@@ -243,7 +243,7 @@ config.navigation_static_label = "Links Úteis"
           "Formato da imagem"
         end
         enum do
-          ['Formato quadrado (800x800)', 'Formato Retangular (1920x960)', 'Formato TV (1920x960)']
+          [['Formato quadrado (800x800)','800x800'], ['Formato Retangular (1920x960)','1920x960']]
         end
       end
       field :action do
@@ -268,13 +268,22 @@ config.navigation_static_label = "Links Úteis"
     edit do
       field :title
       field :description
+      field :observation
+      field :format, :enum do
+        label do
+          "Formato da imagem"
+        end
+        enum do
+          [['Formato quadrado (800x800)','800x800'], ['Formato Retangular (1920x960)','1920x960']]
+        end
+      end
+      field :action
       field :company
       field :status do
         visible do
           bindings[:view].current_user.kind=="manager"
         end
       end
-      field :action
       field :img1
       field :img2
       field :img3
