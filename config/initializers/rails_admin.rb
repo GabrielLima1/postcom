@@ -228,7 +228,7 @@ config.navigation_static_label = "Links Úteis"
         required true #this will just set a hints text
         #to set max length use:
         html_attributes do
-         {:maxlength => 100, :placeholder => "Mensagem que será escrita na sua imagem. Limite de 100 caracteres"} #dont use 600 as maxlength for a string field. It will break the UI
+         {:placeholder => "Mensagem que será escrita na sua imagem. Limite de 100 caracteres"} #dont use 600 as maxlength for a string field. It will break the UI
         end
       end
       field :observation do  #use second parameter to set field type
