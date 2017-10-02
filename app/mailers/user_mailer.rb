@@ -8,13 +8,13 @@ class UserMailer < ActionMailer::Base
   end
 
   def email_admin()
-    mail(:to => ["contato@postcom.com.br", "rodox1209@gmail.com"],
+    mail(:to => ["contato@postcom.com.br", "rodox1209@gmail.com", "gabitobalima@gmail.com"],
       :subject => "[PostCom] Você Recebeu um Novo Pedido",
       :from => "PostCom<nao-responda@postcom.com.br>")
   end
 
   def email_admin_user()
-    mail(:to => ["contato@postcom.com.br", "rodox1209@gmail.com"],
+    mail(:to => ["contato@postcom.com.br", "rodox1209@gmail.com", "gabitobalima@gmail.com"],
       :subject => "[PostCom] Foi Realizado um Cadastro de Usuário!",
       :from => "PostCom<nao-responda@postcom.com.br>")
   end
