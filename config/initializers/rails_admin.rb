@@ -228,7 +228,22 @@ config.navigation_static_label = "Links Úteis"
         required true #this will just set a hints text
         #to set max length use:
         html_attributes do
+         {:placeholder => "Mensagem que será escrita na sua imagem. Limite de 100 caracteres"} #dont use 600 as maxlength for a string field. It will break the UI
+        end
+      end
+      field :observation do  #use second parameter to set field type
+        required true #this will just set a hints text
+        #to set max length use:
+        html_attributes do
          {:maxlength => 100, :placeholder => "Mensagem que será escrita na sua imagem. Limite de 100 caracteres"} #dont use 600 as maxlength for a string field. It will break the UI
+        end
+      end
+      field :format, :enum do
+        label do
+          "Formato da imagem"
+        end
+        enum do
+          [['Formato quadrado (800x800)','800x800'], ['Formato Retangular (1920x960)','1920x960']]
         end
       end
       field :action do
@@ -253,13 +268,22 @@ config.navigation_static_label = "Links Úteis"
     edit do
       field :title
       field :description
+      field :observation
+      field :format, :enum do
+        label do
+          "Formato da imagem"
+        end
+        enum do
+          [['Formato quadrado (800x800)','800x800'], ['Formato Retangular (1920x960)','1920x960']]
+        end
+      end
+      field :action
       field :company
       field :status do
         visible do
           bindings[:view].current_user.kind=="manager"
         end
       end
-      field :action
       field :img1
       field :img2
       field :img3
@@ -273,6 +297,8 @@ config.navigation_static_label = "Links Úteis"
       field :id
       field :title
       field :description
+      field :observation
+      field :format
       field :status
       field :company
       field :action

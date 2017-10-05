@@ -146,7 +146,7 @@
     }
   }
 
-  input[type="text"], input[type="email"], input[type="password"], input[type="integer"] {
+  input[type="text"], input[type="email"], input[type="password"]{
     background-color: transparent;
     border: 0;
     border-bottom: 1px solid #47566c;
@@ -155,7 +155,8 @@
     padding-bottom: 15px;
     width: 100%;
   }
-  #phone {
+
+  #user_phone{
     background-color: transparent;
     border: 0;
     border-bottom: 1px solid #47566c;

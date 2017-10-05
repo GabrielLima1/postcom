@@ -1,4 +1,5 @@
 # config/cloudinary.yml
+#ENV["CLOUD_NAME"]
 development:
   cloud_name: "gabitobalima"
   api_key: "126494115285625"
