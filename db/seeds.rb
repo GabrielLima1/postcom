@@ -9,4 +9,6 @@ User.create name: 'Marcos', status: :active, kind: :manager, email: 'manager@tes
 # Company.create name: 'Jujubijoux', description:'Empresa que vende bijuterias ...', user_id:2
 
 # Criando um desconto de exemplo
-# Desire.create title: 'Postagem dia dos Pais', description: 'Quero uma falimia se abraçando!', company_id: 1, action: "Promoção"
+5.times do
+  Desire.create title: 'Postagem dia dos Pais', description: 'Quero uma falimia se abraçando!', company_id: 1, action: "Promoção", user_id: 1
+end

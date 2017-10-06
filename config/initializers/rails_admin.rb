@@ -44,9 +44,9 @@ config.navigation_static_label = "Links Úteis"
       end
       exclude_fields :id, :sign_in_count, :current_sign_in_ip, :last_sign_in_ip
 
-      # list do
-      #     field
-      # end
+      list do
+          items_per_page 5
+      end
 
       edit do
         fields :plan, :kind, :status, :email, :credit, :desires, :companies do
@@ -61,6 +61,7 @@ config.navigation_static_label = "Links Úteis"
   config.model Proposal do
     navigation_icon 'fa fa-paint-brush'
     list do
+      items_per_page 5
       field :id
       field :img1
       field :img2
@@ -193,6 +194,7 @@ config.navigation_static_label = "Links Úteis"
       end
     end
     list do
+      items_per_page 5
       field :name
       field :description
       field :city
@@ -220,22 +222,27 @@ config.navigation_static_label = "Links Úteis"
         end
       end
       field :title do
+        label do
+          "Nome do pedido"
+        end
         html_attributes do
          {:placeholder => "Para identificação do pedido", :size => 80} #dont use 600 as maxlength for a string field. It will break the UI
         end
       end
       field :description do  #use second parameter to set field type
+        label do
+          "Texto/chamada que será colocado na imagem"
+        end
         required true #this will just set a hints text
         #to set max length use:
         html_attributes do
-         {:placeholder => "Mensagem que será escrita na sua imagem. Limite de 100 caracteres"} #dont use 600 as maxlength for a string field. It will break the UI
+         {:placeholder => "Mensagem 'EXATA' que será escrita na sua imagem."} #dont use 600 as maxlength for a string field. It will break the UI
         end
       end
-      field :observation do  #use second parameter to set field type
-        required true #this will just set a hints text
-        #to set max length use:
+      field :observation do
+        required true
         html_attributes do
-         {:maxlength => 100, :placeholder => "Mensagem que será escrita na sua imagem. Limite de 100 caracteres"} #dont use 600 as maxlength for a string field. It will break the UI
+          {:placeholder => "Explique um pouco mais do que gostaria em seu pedido!"} #dont use 600 as maxlength for a string field. It will break the UI
         end
       end
       field :format, :enum do
@@ -246,8 +253,12 @@ config.navigation_static_label = "Links Úteis"
           [['Formato quadrado (800x800)','800x800'], ['Formato Retangular (1920x960)','1920x960']]
         end
       end
-      field :action do
+      field :action , :enum do
         required true
+        # enum do
+        #   [['Divulgar em redes sociais','rede_social'], ['Divulgar em redes sociais + Whatsapp',:social_whats],
+        #     ['Divulgar em TV',:tv], ['Divulgar em Site',:site], ['Outros (explicar onde será aplicado no campo observação)',:outros]  ]
+        # end
         html_attributes do
          {:size => 80} #dont use 600 as maxlength for a string field. It will break the UI
         end
@@ -294,14 +305,23 @@ config.navigation_static_label = "Links Úteis"
       end
     end
     list do
+      items_per_page 5
       field :id
       field :title
       field :description
       field :observation
       field :format
-      field :status
+      field :status do
+        visible do
+          bindings[:view].current_user.kind=="manager"
+        end
+      end
       field :company
-      field :action
+      field :action do
+        visible do
+          bindings[:view].current_user.kind=="manager"
+        end
+      end
       field :img1
       field :img2
       field :img3
