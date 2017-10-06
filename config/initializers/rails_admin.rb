@@ -221,6 +221,9 @@ config.navigation_static_label = "Links Úteis"
           false
         end
       end
+      field :company do
+        required true
+      end
       field :title do
         label do
           "Nome do pedido"
@@ -242,30 +245,60 @@ config.navigation_static_label = "Links Úteis"
       field :observation do
         required true
         html_attributes do
-          {:placeholder => "Explique um pouco mais do que gostaria em seu pedido!"} #dont use 600 as maxlength for a string field. It will break the UI
+          {:placeholder => "Explique um pouco mais do que gostaria em seu pedido!", :rows=>"5"} #dont use 600 as maxlength for a string field. It will break the UI
         end
       end
-      field :format, :enum do
-        label do
-          "Formato da imagem"
-        end
-        enum do
-          [['Formato quadrado (800x800)','800x800'], ['Formato Retangular (1920x960)','1920x960']]
-        end
-      end
+
       field :action , :enum do
         required true
         # enum do
-        #   [['Divulgar em redes sociais','rede_social'], ['Divulgar em redes sociais + Whatsapp',:social_whats],
-        #     ['Divulgar em TV',:tv], ['Divulgar em Site',:site], ['Outros (explicar onde será aplicado no campo observação)',:outros]  ]
+        #   [['Divulgar em redes sociais',1], ['Divulgar em redes sociais + Whatsapp',2],
+        #     ['Divulgar em TV',3], ['Divulgar em Site',4], ['Outros (explicar onde será aplicado no campo observação)',5]  ]
         # end
         html_attributes do
          {:size => 80} #dont use 600 as maxlength for a string field. It will break the UI
         end
       end
-      field :company do
-        required true
+
+      field :format, :enum do
+        label do
+          "Opção 1 - Escolha um formato de imagem - Padrão"
+        end
+        enum do
+          html_attributes do
+           {:size => 80} #dont use 600 as maxlength for a string field. It will break the UI
+          end
+          [['Formato quadrado (800x800)','800x800'], ['Formato Retangular (1920x960)','1920x960']]
+        end
       end
+
+      field :size do
+        label do
+          "Opção 2 - Escolha um formato de imagem - Personalizado"
+        end
+        html_attributes do
+          {:placeholder => "Largura x Altura (formato dimensão) Ex: 400x400 pxls", :size=>60} #dont use 600 as maxlength for a string field. It will break the UI
+        end
+      end
+
+      # field :width do
+      #   label do
+      #     "Largura"
+      #   end
+      # end
+      #
+      # field :height do
+      #   label do
+      #     "Altura"
+      #   end
+      # end
+      #
+      # field :format_dimensions do
+      #   label do
+      #     "Formato Dimensões"
+      #   end
+      # end
+
       field :img1
       field :img2
       field :img3
